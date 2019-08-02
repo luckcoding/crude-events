@@ -1,0 +1,48 @@
+{
+  "name": "@crude/events",
+  "version": "0.0.1",
+  "description": "A simple dom functional library.",
+  "author": "luckcoding",
+  "main": "lib/index.js",
+  "esnext": "src/index.js",
+  "scripts": {
+    "clean": "rimraf es/* lib/* dist/*",
+    "build": "npm run build:lib && npm run build:esm && npm run build:umd",
+    "build:umd": "rollup -c",
+    "build:lib": "babel src --out-dir lib",
+    "build:esm": "cross-env BABEL_ENV=esm-dir babel src --out-dir es",
+    "lint": "eslint --ext .js src --fix",
+    "release": "npm run build && npm publish --access public"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.1.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-babel-minify": "^9.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-replace": "^2.2.0"
+  },
+  "homepage": "https://github.com/luckcoding/crude-events",
+  "keywords": [
+    "functional"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckcoding/crude-events.git"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "lib",
+    "dist",
+    "src",
+    "es"
+  ]
+}
